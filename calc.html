@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="calc.css">
+        <title>Calculator</title>
+        <div class="container-fluid" id="corpo">
+            <div class="row">
+                <div class="form-group col-12">
+                    <input type="text" class="form-control form-control-sm" name="history" id="history" >
+                  </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-12">
+                    <input type="text" class="form-control form-control-lg text-right" name="display" id="display" placeholder="0">
+                  </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-8 offset-2" id="func">
+                    <button type="button" class="btn btn-danger btn-sm" title="Limpa Tela" id="c">C</button>
+                    <button type="button" class="btn btn-success btn-sm" title="Limpa Memória" id="cm">CM</button>
+                    <button type="button" class="btn btn-success btn-sm" title="Memória 1" id="m1">M1</button>
+                    <button type="button" class="btn btn-success btn-sm" title="Memória 2" id="m2">M2</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-8 offset-2" id="specials">
+                    <button type="button" class="btn btn-warning" id="xy">x<sup>y</sup></button>
+                    <button type="button" class="btn btn-success" id="1x">1/x</button>
+                    <button type="button" class="btn btn-success" id="ap">(</button>
+                    <button type="button" class="btn btn-success" id="fp">)</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-8 offset-2" id="keyboard">
+                    <button type="button" class="btn btn-secondary" value="7">7</button>
+                    <button type="button" class="btn btn-secondary" value="8">8</button>
+                    <button type="button" class="btn btn-secondary" value="9">9</button>
+                    <button type="button" class="btn btn-secondary">*</button>
+                    <button type="button" class="btn btn-secondary" value="4">4</button>
+                    <button type="button" class="btn btn-secondary" value="5">5</button>
+                    <button type="button" class="btn btn-secondary" value="6">6</button>
+                    <button type="button" class="btn btn-secondary">/</button>
+                    <button type="button" class="btn btn-secondary" value="1">1</button>
+                    <button type="button" class="btn btn-secondary" value="2">2</button>
+                    <button type="button" class="btn btn-secondary" value="3">3</button>
+                    <button type="button" class="btn btn-secondary">+</button>
+                    <button type="button" class="btn btn-secondary" value="0">0</button>
+                    <button type="button" class="btn btn-secondary" id="ponto" value=".">.</button>
+                    <button type="button" class="btn btn-primary" id="igual">=</button>
+                    <button type="button" class="btn btn-secondary">-</button>
+                </div>
+            </div>
+        </div>
+    </head>
+    <body>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="calc.js"></script>
+    </body>
+</html> 

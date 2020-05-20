@@ -1,0 +1,21 @@
+#display, #history{
+    text-align: right;
+}
+
+#corpo{
+    margin-top: 10px;
+    width: 300px;
+    border: 1px solid gray;
+    padding: 10px;
+    background-image: linear-gradient(to bottom right, lightgreen,lightblue);
+}
+
+#keyboard > button{
+    margin-right: 5px;
+    margin-top: 5px;
+    font-weight: bolder;
+}
+
+#specials, #func{
+    font-weight: bolder;
+}
