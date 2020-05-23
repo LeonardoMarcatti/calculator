@@ -1,8 +1,5 @@
 let m1, m2, x, y;
-m1 = 0;
-m2 = 0;
-x = 0;
-y = 0;
+
 $('#keyboard').children().on('click', function(e){
     $('#igual').removeAttr('disabled');
     let valor = e.target.innerHTML;
@@ -58,26 +55,27 @@ $('#igual').on('click', () => {
     $('#ponto').removeAttr('disabled');
 });
 
-$('#c').on('click', () => {    
+$('#c').on('click', () => {
     $('#display').val('');
     $('#history').val('');
     $('#xy').css('color', 'black');
-    $('sup').css('color', 'black');
+    $('#sup').css('color', 'black');
     $('#ponto').removeAttr('disabled');
     x = 0,
     y = 0;
 });
 
 $('#1x').on('click', 
-    ()=> $('#display').val(1/$('#display').val()));
+    ()=> {
+        $('#display').val(1/$('#history').val());
+        $('#history').val($('#history').val() + '=');
+    });
 
 $('#m1').on('click',
     () => {if (m1 != 0) {
-        $('#display').val(m1);
-        $('#history').val($('#history').val() + $('#display').val());
+        $('#history').val($('#history').val() + m1);
     } else {
-        m1 = $('#display').val();
-        $('#display').val('');
+        m1 = $('#history').val();
         $('#history').val('');
     };
 });
@@ -96,20 +94,24 @@ $('#m2').on('click',
 $('#cm').on('click', () => {m1 = 0; m2 = 0;});
 
 $('#xy').on('click', () =>{
-    if (x == 0) {
-        x = $('#display').val();
-        $('#display').val('');
-        $('#xy').css('color', 'red');
-        $('sup').css('color', 'black');
-        $('#history').val(x + '^');
-    } else {
-        y = $('#display').val();
-        $('sup').css('color', 'red');
-        $('#display').val(Math.pow(x,y));
-        $('#history').val( $('#history').val() + '=');
-        x = 0;
-        y = 0;
+    if ($('#history').val() == '' || $('#history').val().includes('=')) {
+        false;
+    } else{
+        if (x == 0) {
+            x = $('#history').val();
+            $('#xy').css('color', 'red');
+            $('#sup').css('color', 'black');
+            $('#history').val(x + '^');
+        } else {
+            y = $('#history').val().split('^');
+            $('#sup').css('color', 'red');
+            $('#display').val(Math.pow(x,y[1]));
+            $('#history').val( $('#history').val() + '=');
+            x = 0;
+            y = 0;
+        };
     };
+   
 });
 
 $('#ap').on('click', ()=> $('#history').val($('#history').val() + '('));
