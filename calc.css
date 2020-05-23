@@ -7,7 +7,7 @@
     width: 300px;
     border: 1px solid gray;
     padding: 10px;
-    background-image: linear-gradient(to bottom right, lightgreen,lightblue);
+    background-color: rgb(48, 47, 47);
 }
 
 #keyboard > button{
