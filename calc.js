@@ -1,4 +1,8 @@
 let m1, m2, x, y;
+m1 = 0;
+m2 = 0;
+x = 0;
+y = 0;
 
 $('#keyboard').children().on('click', function(e){
     $('#igual').removeAttr('disabled');
@@ -72,30 +76,56 @@ $('#1x').on('click',
     });
 
 $('#m1').on('click',
-    () => {if (m1 != 0) {
-        $('#history').val($('#history').val() + m1);
+    () => {if (m1 == '' || m1 == 0) {
+        if ($('#history').val().includes('=')) {
+            m1 = $('#display').val();
+        } else if(isNaN($('#history').val())){
+           false;
+        } else{
+            m1 = $('#history').val();
+        }
     } else {
-        m1 = $('#history').val();
-        $('#history').val('');
+        $('#history').val($('#history').val() + m1);
     };
 });
 
 $('#m2').on('click',
-    () => {if (m2 != 0) {
-        $('#display').val(m2);
-        $('#history').val($('#history').val() + $('#display').val());
+    () => {if (m2 == '' || m2 == 0) {
+        if ($('#history').val().includes('=')) {
+            m2 = $('#display').val();
+        } else if(isNaN($('#history').val())){
+        false;
+        } else{
+            m2 = $('#history').val();
+        }
     } else {
-        m2 = $('#display').val();
-        $('#display').val('');
-        $('#history').val('');
+        $('#history').val($('#history').val() + m2);
     };
 });
 
 $('#cm').on('click', () => {m1 = 0; m2 = 0;});
 
 $('#xy').on('click', () =>{
-    if ($('#history').val() == '' || $('#history').val().includes('=')) {
-        false;
+    if ($('#history').val().includes('=')) {
+        if (x == 0) {
+            x = $('#display').val();
+            $('#xy').css('color', 'red');
+            $('#sup').css('color', 'black');
+        } else {
+            y = $('#display').val();
+            $('#sup').css('color', 'red');
+            $('#display').val(Math.pow(x,y));
+            $('#history').val( x + '^' + y + '=');
+            x = 0;
+            y = 0;
+        };
+    } else if ($('#history').val().includes('^')) {
+            y = $('#history').val().split('^');
+            $('#sup').css('color', 'red');
+            $('#display').val(Math.pow(x,y[1]));
+            $('#history').val( $('#history').val() + '=');
+            x = 0;
+            y = 0;
     } else{
         if (x == 0) {
             x = $('#history').val();
@@ -103,15 +133,15 @@ $('#xy').on('click', () =>{
             $('#sup').css('color', 'black');
             $('#history').val(x + '^');
         } else {
-            y = $('#history').val().split('^');
+            y = $('#history').val();
+            console.log(y);            
             $('#sup').css('color', 'red');
-            $('#display').val(Math.pow(x,y[1]));
+            $('#display').val(Math.pow(x,y));
             $('#history').val( $('#history').val() + '=');
             x = 0;
             y = 0;
         };
-    };
-   
+    };   
 });
 
 $('#ap').on('click', ()=> $('#history').val($('#history').val() + '('));
