@@ -53,10 +53,14 @@ $('#keyboard').children().on('click', (param) => {
 });
 
 $('#igual').on('click', () => {
-    $('#display').val(eval($('#history').val()));
-    $('#history').val($('#history').val() + '=');
-    $('#igual').attr('disabled', '');
-    $('#ponto').removeAttr('disabled');
+    if ($('#history').val().includes('^')) {
+        false;
+    } else {
+        $('#display').val(eval($('#history').val()));
+        $('#history').val($('#history').val() + '=');
+        $('#igual').attr('disabled', '');
+        $('#ponto').removeAttr('disabled');
+    }
 });
 
 $('#c').on('click', () => {
@@ -127,21 +131,11 @@ $('#xy').on('click', () =>{
             x = 0;
             y = 0;
     } else{
-        if (x == 0) {
             x = $('#history').val();
             $('#xy').css('color', 'red');
             $('#sup').css('color', 'black');
             $('#history').val(x + '^');
-        } else {
-            y = $('#history').val();
-            console.log(y);            
-            $('#sup').css('color', 'red');
-            $('#display').val(Math.pow(x,y));
-            $('#history').val( $('#history').val() + '=');
-            x = 0;
-            y = 0;
-        };
-    };   
+    };
 });
 
 $('#ap').on('click', ()=> $('#history').val($('#history').val() + '('));
