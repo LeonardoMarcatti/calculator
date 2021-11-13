@@ -1,8 +1,4 @@
 let m1, m2, x, y;
-m1 = 0;
-m2 = 0;
-x = 0;
-y = 0;
 
 $('#keyboard').children().on('click', function(e){
     $('#igual').removeAttr('disabled');
