@@ -16,6 +16,13 @@
     font-weight: bolder;
 }
 
+#keyboard, #specials, #func{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 #specials, #func{
     font-weight: bolder;
 }
